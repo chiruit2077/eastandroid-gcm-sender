@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/target" >
+        <CheckBoxPreference
+            android:key="me"
+            android:summary="@string/me_summary"
+            android:title="@string/me" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="noisall_target"
+            android:summary="@string/noisall_summary"
+            android:title="@string/noisall" />
+        <CheckBoxPreference
+            android:key="silent_add_target"
+            android:summary="@string/silent_add_summary"
+            android:title="@string/silent_add" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/message" >
+        <CheckBoxPreference
+            android:key="encode"
+            android:summary="@string/encode_summary"
+            android:title="@string/encode" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="noisall_message"
+            android:summary="@string/noisall_summary"
+            android:title="@string/noisall" />
+        <CheckBoxPreference
+            android:key="silent_add_message"
+            android:summary="@string/silent_add_summary"
+            android:title="@string/silent_add" />
+
+        <EditTextPreference
+            android:dialogTitle="@string/defalut_key"
+            android:key="defalut_key"
+            android:summary="@string/defalut_key_summary"
+            android:title="@string/defalut_key" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/gcm" >
+        <PreferenceScreen
+            android:summary="@string/gcm_www_summary"
+            android:title="@string/gcm_www" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://code.google.com/apis/console" />
+        </PreferenceScreen>
+
+        <CheckBoxPreference
+            android:key="silent_add_config"
+            android:summary="@string/silent_add_summary"
+            android:title="@string/silent_add" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/help" >
+        <PreferenceScreen
+            android:summary="@string/help_www_summary"
+            android:title="@string/help_www" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://developer.android.com/google/gcm" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="@string/developer_mail"
+            android:title="@string/developer" >
+            <intent
+                android:action="android.intent.action.SENDTO"
+                android:data="@string/mail_address" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+
+</PreferenceScreen>

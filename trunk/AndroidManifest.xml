@@ -1,0 +1,128 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.eastandroid.gcmsender"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <permission
+        android:name="com.eastandroid.gcmsender.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.eastandroid.gcmsender"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.eastandroid.gcmsender.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:name=".common.GSApplication"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Sherlock.__Theme.DarkActionBar" >
+        <activity
+            android:name=".MainTab"
+            android:label="@string/gcm"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.APP_BROWSER" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="gcmsender.eastandroid.com"
+                    android:path="/MainFConfig"
+                    android:scheme="http" />
+                <data
+                    android:host="gcmsender.eastandroid.com"
+                    android:path="/MainFMessage"
+                    android:scheme="http" />
+                <data
+                    android:host="gcmsender.eastandroid.com"
+                    android:path="/MainFTargets"
+                    android:scheme="http" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WriteMessage"
+            android:label="@string/message"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="gcmsender.eastandroid.com"
+                    android:path="/WriteMessage"
+                    android:scheme="gcmsender" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".WriteTarget"
+            android:label="@string/target"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.INSERT" />
+                <action android:name="android.intent.action.EDIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="gcmsender.eastandroid.com"
+                    android:path="/WriteTarget"
+                    android:scheme="gcmsender" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Properties"
+            android:label="@string/preferences"
+            android:windowSoftInputMode="adjustResize" >
+        </activity>
+
+        <receiver
+            android:name="android.util.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.eastandroid.gcmsender" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".common.GSIntentService"
+            android:permission="com.eastandroid.gcmsender" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="com.eastandroid.gcmsender" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

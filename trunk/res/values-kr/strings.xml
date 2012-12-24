@@ -1,0 +1,58 @@
+<resources>
+
+    <string name="app_name">GCM Sender</string>
+    <!-- Preference -->
+    <string name="target">푸시대상</string>
+    <string name="me">나 포함</string>
+    <string name="me_summary">푸시 전송시 나를 포함하여 보냄</string>
+    <string name="noisall">전체기본</string>
+    <string name="noisall_summary">대상 미 선택이 모두를 대상으로 함</string>
+    <string name="silent_add">묻지마추가</string>
+    <string name="silent_add_summary">링크를 이용하여 추가시 묻지않음</string>
+    <string name="message">푸시내용</string>
+    <string name="encode">Url Encoding 사용</string>
+    <string name="encode_summary">내용 전송시 Url Encoding 사용</string>
+    <string name="defalut_key">기본키</string>
+    <string name="defalut_key_summary">공유 전송시 기본키값 설정</string>
+    <string name="gcm">GCM</string>
+    <string name="gcm_www">Google api console</string>
+    <string name="gcm_www_summary">Google api console로 이동</string>
+    <string name="help">도움말</string>
+    <string name="help_www">GCM이란?</string>
+    <string name="help_www_summary">Google GCM 페이지로 이동</string>
+    <string name="developer">개발자...</string>
+    <string name="developer_mail">gcmsender@eastandroid.com</string>
+    <string name="mail_address">mailto:gcmsender@eastandroid.com</string>
+
+    <!-- menu -->
+    <string name="reg">등록</string>
+    <string name="unreg">해지</string>
+    <string name="share_project_number">공유(Project Number &amp; API Key)</string>
+    <string name="share_registrationId">공유(Registration ID)</string>
+    <string name="file">파일</string>
+    <string name="load">열기</string>
+    <string name="save">저장</string>
+    <string name="preferences">설정</string>
+    <string name="edit">편집</string>
+    <string name="add">추가</string>
+    <string name="delete">삭제</string>
+    <string name="share">공유</string>
+
+    <!-- layout -->
+    <string name="key">Key</string>
+    <string name="value">Value</string>
+    <string name="name">Name</string>
+    <string name="registration_id">Registration ID</string>
+    <string name="send">전송</string>
+
+    <!-- java -->
+    <string name="new_more">새 파일...</string>
+    <string name="new_filename">이름</string>
+    <string name="ok">확인</string>
+    <!-- dialog -->
+    <string name="cancel">취소</string>
+    <string name="insert_config">Config 정보를 클릭한 것으로 변경 하시겠습니까?</string>
+    <string name="insert_message">새로운 Message를 추가하 하시겠습니까?</string>
+    <string name="insert_target">새로운 Target를 추가하 하시겠습니까?</string>
+
+</resources>

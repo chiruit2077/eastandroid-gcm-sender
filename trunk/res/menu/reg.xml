@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:showAsAction="always"
+        android:title="@string/gcm">
+        <menu>
+            <item
+                android:id="@+id/menu_reg"
+                android:showAsAction="always"
+                android:title="@string/reg"/>
+            <item
+                android:id="@+id/menu_unreg"
+                android:showAsAction="always"
+                android:title="@string/unreg"/>
+            <item
+                android:id="@+id/menu_share_PROJECT_NUMBER"
+                android:showAsAction="always"
+                android:title="@string/share_project_number"/>
+            <item
+                android:id="@+id/menu_share_registrationId"
+                android:showAsAction="always"
+                android:title="@string/share_registrationId"/>
+        </menu>
+    </item>
+
+</menu>
