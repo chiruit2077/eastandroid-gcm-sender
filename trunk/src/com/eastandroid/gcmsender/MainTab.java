@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.GCMSend;
+import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -248,6 +249,7 @@ public class MainTab extends GSActivity {
 	}
 
 	public class TabsAdapter extends FragmentPagerAdapter implements TabListener, OnPageChangeListener {
+		private SparseArray<Object> tags = new SparseArray<Object>();
 
 		public TabsAdapter(FragmentManager fm) {
 			super(fm);
@@ -265,10 +267,14 @@ public class MainTab extends GSActivity {
 			return CLASSES.values().length;
 		}
 
+		Object getInstantiate(int position) {
+			return tags.get(position);
+		}
+
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
-			Object obj;
-			Log.l(obj = super.instantiateItem(container, position));
+			Object obj = super.instantiateItem(container, position);
+			tags.put(position, obj);
 			return obj;
 		}
 		@Override
