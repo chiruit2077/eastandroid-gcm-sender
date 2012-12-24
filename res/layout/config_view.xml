@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <EditText
+        android:id="@+id/PROJECT_NUMBER"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PROJECT_NUMBER" />
+
+    <EditText
+        android:id="@+id/API_KEY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="API_KEY" />
+
+    <EditText
+        android:id="@+id/RegistrationId"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="@string/registration_id" />
+
+</LinearLayout>

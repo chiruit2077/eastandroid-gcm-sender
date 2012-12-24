@@ -1,0 +1,58 @@
+<resources>
+
+    <string name="app_name">GCM Sender</string>
+    <!-- Preference -->
+    <string name="target">Push</string>
+    <string name="me">Include me</string>
+    <string name="me_summary">Including sending me a push transfer</string>
+    <string name="noisall">Select all</string>
+    <string name="noisall_summary">None select mines Select all</string>
+    <string name="silent_add">Silent </string>
+    <string name="silent_add_summary">Do not ask when additional</string>
+    <string name="message">Message</string>
+    <string name="encode">Use Url Encoding</string>
+    <string name="encode_summary">Message allways Url Encoding</string>
+    <string name="defalut_key">Defaut Key</string>
+    <string name="defalut_key_summary">Share transfer, the primary key value set</string>
+    <string name="gcm">GCM</string>
+    <string name="gcm_www">Google api console</string>
+    <string name="gcm_www_summary">Move to google apis console</string>
+    <string name="help">Help</string>
+    <string name="help_www">About GCM...</string>
+    <string name="help_www_summary">Move to google gcm www page</string>
+    <string name="developer">Developer...</string>
+    <string name="developer_mail">gcmsender@eastandroid.com</string>
+    <string name="mail_address">mailto:gcmsender@eastandroid.com</string>
+
+    <!-- menu -->
+    <string name="reg">Registration</string>
+    <string name="unreg">Unregistration</string>
+    <string name="share_project_number">Share Project Number &amp; API Key</string>
+    <string name="share_registrationId">share Registration ID</string>
+    <string name="file">FILE</string>
+    <string name="load">LOAD</string>
+    <string name="save">SAVE</string>
+    <string name="preferences">Preferences</string>
+    <string name="edit">EDIT</string>
+    <string name="add">ADD</string>
+    <string name="delete">DEL</string>
+    <string name="share">SHARE</string>
+
+    <!-- layout -->
+    <string name="key">Key</string>
+    <string name="value">Value</string>
+    <string name="name">Name</string>
+    <string name="registration_id">Registration ID</string>
+    <string name="send">Send</string>
+
+    <!-- java -->
+    <string name="new_more">NEW...</string>
+    <string name="new_filename">Filename</string>
+    <string name="ok">OK</string>
+    <!-- dialog -->
+    <string name="cancel">Cancel</string>
+    <string name="insert_config">Set new config from link?</string>
+    <string name="insert_message">Add new message from link?</string>
+    <string name="insert_target">Add new target from link?</string>
+
+</resources>
