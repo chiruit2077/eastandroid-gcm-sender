@@ -201,6 +201,7 @@ public class MainFMessage extends GSFragment implements OnItemLongClickListener 
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode != Activity.RESULT_OK)
 			return;
 		String key = data.getStringExtra(C.EXTRA.key.s());
@@ -221,7 +222,6 @@ public class MainFMessage extends GSFragment implements OnItemLongClickListener 
 				break;
 		}
 
-		super.onActivityResult(requestCode, resultCode, data);
 	}
 
 	public class MessageAdapter extends BaseAdapter {
