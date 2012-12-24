@@ -55,7 +55,7 @@ public class MainTab extends GSActivity {
 	}
 	@Override
 	protected void onNewIntent(Intent intent) {
-		Log.l(intent);
+//		Log.l(intent);
 		setIntent(intent);
 		super.onNewIntent(intent);
 		parseIntent();

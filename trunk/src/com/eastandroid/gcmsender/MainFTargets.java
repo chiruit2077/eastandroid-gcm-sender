@@ -49,7 +49,7 @@ public class MainFTargets extends GSFragment implements OnItemLongClickListener 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.itemlist_view, container, false);
-		Log.l();
+f
 		return v;
 	}
 	@Override
