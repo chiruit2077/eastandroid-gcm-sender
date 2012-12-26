@@ -174,5 +174,8 @@ public class MainFConfig extends GSFragment {
 		};
 		showDialog("really?", "YES", positiveListener, "NO", null);
 	}
+	public String getApiKey() {
+		return text(R.id.API_KEY);
+	}
 
 }

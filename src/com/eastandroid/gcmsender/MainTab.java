@@ -195,7 +195,12 @@ public class MainTab extends GSActivity {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put(key, msg);
 
-		GCMSend.sender(C.API_KEY, regIds, map);
+		String api_key = "";
+		{
+			MainFConfig fr = (MainFConfig) mTabsAdapter.getInstantiateItem(CLASSES.MainFConfig.o());
+			api_key = fr.getApiKey();
+		}
+		GCMSend.sender(api_key, regIds, map);
 	};
 
 	public void onSendClickListener(View v) {
@@ -237,7 +242,13 @@ public class MainTab extends GSActivity {
 			}
 		}
 
-		GCMSend.sender(C.API_KEY, regIds, map);
+		String api_key = "";
+		{
+			MainFConfig fr = (MainFConfig) mTabsAdapter.getInstantiateItem(CLASSES.MainFConfig.o());
+			api_key = fr.getApiKey();
+		}
+		GCMSend.sender(api_key, regIds, map);
+
 	};
 
 	private enum CLASSES {

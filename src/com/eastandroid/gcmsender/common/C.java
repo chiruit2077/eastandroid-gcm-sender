@@ -3,8 +3,11 @@ package com.eastandroid.gcmsender.common;
 import android.common.BaseC;
 
 public interface C extends BaseC {
-	String PROJECT_NUMBER = "316429311504";
-	String API_KEY = "AIzaSyBtgAww81TGotvtf79rXGETGSsyN3JAar0";
+//	String PROJECT_NUMBER = "316429311504";
+//	String API_KEY = "AIzaSyBtgAww81TGotvtf79rXGETGSsyN3JAar0";
+
+	String PROJECT_NUMBER = "";
+	String API_KEY = "";
 
 	String SCHEME = "http";
 	String SCHEME_GCMSENDER = "gcmsender";
