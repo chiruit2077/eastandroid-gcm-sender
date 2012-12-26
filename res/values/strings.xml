@@ -28,7 +28,7 @@
     <string name="reg">Registration</string>
     <string name="unreg">Unregistration</string>
     <string name="share_project_number">Share Project Number &amp; API Key</string>
-    <string name="share_registrationId">share Registration ID</string>
+    <string name="share_registrationId">Share Registration ID</string>
     <string name="file">FILE</string>
     <string name="load">LOAD</string>
     <string name="save">SAVE</string>

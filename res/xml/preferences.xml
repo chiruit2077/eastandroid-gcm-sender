@@ -3,7 +3,7 @@
 
     <PreferenceCategory android:title="@string/target" >
         <CheckBoxPreference
-            android:key="me"
+            android:key="includeme"
             android:summary="@string/me_summary"
             android:title="@string/me" />
         <CheckBoxPreference
