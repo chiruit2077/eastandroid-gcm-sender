@@ -203,13 +203,8 @@ public class MainTab extends GSActivity {
 					regIds.add(rid);
 			}
 
-			MainFTargets fr = (MainFTargets) mTabsAdapter.getItem(CLASSES.MainFTargets.o());
-
-//			MainFTargets fr = (MainFTargets) getSupportFragmentManager().getFragment(null, CLASSES.MainFTargets.title());
-//			MainFTargets fr = (MainFTargets) getSupportFragmentManager().findFragmentById((int) mTabsAdapter.getItemId(CLASSES.MainFTargets.o()));
+			MainFTargets fr = (MainFTargets) mTabsAdapter.getInstantiateItem(CLASSES.MainFTargets.o());
 			ArrayList<Target> targets = fr.getSelected();
-//			ArrayList<Target> targets = null;
-//			targets = GSFile.load(GSFile.getLastTartet(), targets);
 			for (Target target : targets) {
 				regIds.add(target.registrationId);
 			}
@@ -217,12 +212,8 @@ public class MainTab extends GSActivity {
 
 		Map<String, String> map = new HashMap<String, String>();
 		{
-			MainFMessage fr = (MainFMessage) mTabsAdapter.getItem(CLASSES.MainFMessage.o());
-//			MainFMessage fr = (MainFMessage) getSupportFragmentManager().getFragment(null, CLASSES.MainFMessage.title());
-//			MainFMessage fr = (MainFMessage) getSupportFragmentManager().findFragmentById((int) mTabsAdapter.getItemId(CLASSES.MainFMessage.o()));
+			MainFMessage fr = (MainFMessage) mTabsAdapter.getInstantiateItem(CLASSES.MainFMessage.o());
 			ArrayList<Message> messages = fr.getSelected();
-//			ArrayList<Message> messages = null;
-//			messages = GSFile.load(GSFile.getLastMessage(), messages);
 			for (Message message : messages) {
 				map.put(message.key, message.value);
 			}
@@ -249,7 +240,7 @@ public class MainTab extends GSActivity {
 	}
 
 	public class TabsAdapter extends FragmentPagerAdapter implements TabListener, OnPageChangeListener {
-		private SparseArray<Object> tags = new SparseArray<Object>();
+		private SparseArray<Object> mTags = new SparseArray<Object>();
 
 		public TabsAdapter(FragmentManager fm) {
 			super(fm);
@@ -267,14 +258,14 @@ public class MainTab extends GSActivity {
 			return CLASSES.values().length;
 		}
 
-		Object getInstantiate(int position) {
-			return tags.get(position);
+		Object getInstantiateItem(int position) {
+			return mTags.get(position);
 		}
 
 		@Override
 		public Object instantiateItem(ViewGroup container, int position) {
 			Object obj = super.instantiateItem(container, position);
-			tags.put(position, obj);
+			mTags.put(position, obj);
 			return obj;
 		}
 		@Override
