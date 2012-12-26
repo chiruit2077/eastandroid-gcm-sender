@@ -1,12 +1,14 @@
 package com.eastandroid.gcmsender;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 import android.common.BaseP;
-import android.content.DialogInterface.OnClickListener;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.miscellaneous.Log;
 import android.net.Uri;
@@ -43,6 +45,7 @@ public class MainTab extends GSActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		setContentView(R.layout.maintab);
 		getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 
@@ -52,7 +55,6 @@ public class MainTab extends GSActivity {
 		mViewPager.setOnPageChangeListener(mTabsAdapter);
 
 		parseIntent();
-
 	}
 	@Override
 	protected void onNewIntent(Intent intent) {
@@ -66,7 +68,7 @@ public class MainTab extends GSActivity {
 		Log.l(intent);
 
 		if (Intent.ACTION_SEND.equals(intent.getAction())) {
-			onSendClickListener(null);
+			send(P.I.defalut_key.get("gcmsender"), intent.getStringExtra(Intent.EXTRA_TEXT));
 		}
 
 		final Uri uri = intent.getData();
@@ -79,7 +81,7 @@ public class MainTab extends GSActivity {
 			actionBar.selectTab(actionBar.getTabAt(CLASSES.valueOf(uri.getLastPathSegment()).o()));
 			switch (CLASSES.valueOf(path)) {
 				case MainFConfig :
-					if (BaseP.c().getBoolean("silent_add_config")) {
+					if (P.I.silent_add_config.get(false)) {
 						setConfig(uri);
 					} else {
 						OnClickListener positiveListener = new OnClickListener() {
@@ -94,7 +96,7 @@ public class MainTab extends GSActivity {
 					break;
 
 				case MainFMessage :
-					if (BaseP.c().getBoolean("silent_add_message")) {
+					if (P.I.silent_add_message.get(false)) {
 						addMessage(uri);
 					} else {
 						OnClickListener positiveListener = new OnClickListener() {
@@ -107,7 +109,7 @@ public class MainTab extends GSActivity {
 					}
 					break;
 				case MainFTargets :
-					if (BaseP.c().getBoolean("silent_add_target")) {
+					if (P.I.silent_add_target.get(false)) {
 						addTarget(uri);
 					} else {
 						OnClickListener positiveListener = new OnClickListener() {
@@ -174,15 +176,20 @@ public class MainTab extends GSActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void onSendClickListener(String key, String msg) {
+	public void send(String key, String msg) {
 		ArrayList<String> regIds = new ArrayList<String>();
-		String rid = P.c().getRegistrationId();
-		if (rid != null)
-			regIds.add(rid);
-		ArrayList<Target> targets = null;
-		targets = GSFile.load(GSFile.getLastTartet(), targets);
-		for (Target target : targets) {
-			regIds.add(target.registrationId);
+		{
+			if (BaseP.c().getBoolean(P.I.includeme.s())) {
+				String rid = P.c().getRegistrationId();
+				if (rid != null)
+					regIds.add(rid);
+			}
+
+			MainFTargets fr = (MainFTargets) mTabsAdapter.getInstantiateItem(CLASSES.MainFTargets.o());
+			ArrayList<Target> targets = fr.getSelected();
+			for (Target target : targets) {
+				regIds.add(target.registrationId);
+			}
 		}
 
 		Map<String, String> map = new HashMap<String, String>();
@@ -197,7 +204,7 @@ public class MainTab extends GSActivity {
 
 		ArrayList<String> regIds = new ArrayList<String>();
 		{
-			if (BaseP.c().getBoolean("me")) {
+			if (P.I.includeme.get(false)) {
 				String rid = P.c().getRegistrationId();
 				if (rid != null)
 					regIds.add(rid);
@@ -216,6 +223,17 @@ public class MainTab extends GSActivity {
 			ArrayList<Message> messages = fr.getSelected();
 			for (Message message : messages) {
 				map.put(message.key, message.value);
+				String key = message.key;
+				String value = message.value;
+				if (P.I.encode.get(false)) {
+					try {
+						key = URLEncoder.encode(key, C.CHAR_UTF8);
+						value = URLEncoder.encode(value, C.CHAR_UTF8);
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
+				map.put(key, value);
 			}
 		}
 

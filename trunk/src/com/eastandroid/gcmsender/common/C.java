@@ -1,6 +1,8 @@
 package com.eastandroid.gcmsender.common;
 
-public interface C {
+import android.common.BaseC;
+
+public interface C extends BaseC {
 	String PROJECT_NUMBER = "316429311504";
 	String API_KEY = "AIzaSyBtgAww81TGotvtf79rXGETGSsyN3JAar0";
 

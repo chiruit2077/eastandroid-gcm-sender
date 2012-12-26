@@ -7,7 +7,6 @@ import java.util.Observer;
 import java.util.Set;
 
 import android.app.Activity;
-import android.common.BaseP;
 import android.content.Intent;
 import android.miscellaneous.Log;
 import android.os.Bundle;
@@ -28,6 +27,7 @@ import com.eastandroid.gcmsender.common.C;
 import com.eastandroid.gcmsender.common.GSFile;
 import com.eastandroid.gcmsender.common.GSFragment;
 import com.eastandroid.gcmsender.common.OH;
+import com.eastandroid.gcmsender.common.P;
 import com.eastandroid.gcmsender.data.Target;
 
 public class MainFTargets extends GSFragment implements OnItemLongClickListener {
@@ -285,7 +285,7 @@ public class MainFTargets extends GSFragment implements OnItemLongClickListener 
 		if (selected_targets.size() > 0)
 			return selected_targets;
 
-		if (BaseP.c().getBoolean("noisall_target"))
+		if (P.I.noisall_target.get(true))
 			return mListItem;
 		else
 			return selected_targets;

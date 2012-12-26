@@ -7,7 +7,6 @@ import java.util.Observer;
 import java.util.Set;
 
 import android.app.Activity;
-import android.common.BaseP;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.ShareHelper;
@@ -27,6 +26,7 @@ import com.eastandroid.gcmsender.common.C;
 import com.eastandroid.gcmsender.common.GSFile;
 import com.eastandroid.gcmsender.common.GSFragment;
 import com.eastandroid.gcmsender.common.OH;
+import com.eastandroid.gcmsender.common.P;
 import com.eastandroid.gcmsender.data.Message;
 
 public class MainFMessage extends GSFragment implements OnItemLongClickListener {
@@ -285,7 +285,7 @@ public class MainFMessage extends GSFragment implements OnItemLongClickListener 
 		if (selected_messages.size() > 0)
 			return selected_messages;
 
-		if (BaseP.c().getBoolean("noisall_message"))
+		if (P.I.noisall_message.get(true))
 			return mListItem;
 		else
 			return selected_messages;
